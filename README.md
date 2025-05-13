@@ -22,14 +22,25 @@ Este projeto é uma aplicação web desenvolvida com Spring Boot que permite o g
 
 ## Estrutura do Projeto
 src/
+
 └── main/
+
 ├── java/com/example/demo/
+
 │ ├── Controllers/
+
 │ ├── Models/
+
 │ ├── Repository/
+
 │ └── DemoApplication.java
+
 └── resources/
+
 ├── templates/
+
 │ └── Evento/
+
 └── static/materialize-v1.0.0/
+
 
