@@ -1,2 +1,24 @@
-# Gerenciador-De-Eventos
-Este é um sistema web para gerenciamento de eventos, desenvolvido com Spring Boot. Ele permite o cadastro de usuários, criação e edição de eventos, além da gestão de convidados. A aplicação segue a arquitetura MVC e utiliza Thymeleaf para renderização no frontend e Materialize CSS para o estilo visual.
+# Gerenciador de Eventos Web
+
+Este projeto é uma aplicação web desenvolvida com Spring Boot que permite o gerenciamento de eventos e convidados. Ele oferece funcionalidades como cadastro de usuários, autenticação, criação/edição de eventos e listagem de convidados.
+
+## Funcionalidades
+
+- Login e autenticação de usuários
+- Cadastro e edição de eventos
+- Listagem de convidados por evento
+- Validação de formulários
+- Interface responsiva com Materialize CSS
+
+## Tecnologias Utilizadas
+
+- **Java 17+**
+- **Spring Boot**
+- **Thymeleaf**
+- **Materialize CSS**
+- **Maven**
+- **Spring Data JPA**
+- **H2 Database (ou outro configurado)**
+
+## Estrutura do Projeto
+
