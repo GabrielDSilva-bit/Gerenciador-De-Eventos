@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Alterar Dados</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            height: 650px;
+            width: 700px; /* Aumentando a largura do formulário */
+        }
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 120vh;
+            margin: 0;
+        }
+        .nav-wrapper {
+            background-color: #29b6f6;
+            padding: 0;
+
+        }
+        .container {
+            flex: 1;
+            padding: 40px; /* Adiciona espaço interno */
+            width: 100%; /* Garante que o container use 100% da largura */
+            box-sizing: border-box; /* Inclui padding no cálculo de largura */
+        }
+        table {
+            width: 100%; /* Garante que a tabela ocupe toda a largura do container */
+        }
+        .page-footer {
+            background-color: #29b6f6;
+            padding: 8px;
+            color: white;
+            text-align: center;
+        }
+    </style>
+    <nav>
+        <div class="nav-wrapper">
+            <a href="#" class="brand-logo right">Lista de Eventos</a>
+            <ul id="nav-mobile" class="left hide-on-med-and-down">
+                <li><a href="/cadastrarEvento"><i class="material-icons left"></i>Cadastrar evento</a></li>
+                <li><a href="/evento">Principal</a></li>
+                <li><a href="/cadastroUser">Login</a></li>
+
+            </ul>
+        </div>
+    </nav>
+</head>
+<body>
+
+<div class="container">
+    <h1>Alterar Dados</h1>
+    <!-- Usar o objeto evento para preencher os dados no formulário -->
+    <form th:action="@{/atualizarEvento}" th:object="${evento}" method="post">
+        <input type="hidden" th:field="*{codigo}" /> <!-- Campo oculto com o código do evento -->
+
+        <div class="input-field">
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome" th:field="*{nome}" required>
+        </div>
+        <div class="input-field">
+            <label for="local">Local:</label>
+            <input type="text" id="local" th:field="*{local}" required>
+        </div>
+        <div class="input-field">
+            <label for="data">Data:</label>
+            <input type="text" id="data" class="datepicker" th:field="*{data}" required>
+        </div>
+        <div class="input-field">
+            <label for="horario">Horário:</label>
+            <input type="text" id="horario" th:field="*{horario}" required>
+        </div>
+        <button type="submit" class="btn red">Salvar</button>
+    </form>
+
+    <!-- Mensagem de feedback -->
+    <div th:if="${mensagem}" class="card-panel teal lighten-2">
+        <span class="white-text" th:text="${mensagem}"></span>
+    </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+var elems = document.querySelectorAll('.datepicker');
+M.Datepicker.init(elems, { format: 'dd-mm-yyyy' });
+});
+</script>
+
+</body>
+</html>

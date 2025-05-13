@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Eventos</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet">
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 120vh;
+            margin: 0;
+        }
+        .nav-wrapper {
+            background-color: #29b6f6;
+            padding: 0;
+
+        }
+        .container {
+            flex: 1;
+            padding: 40px; /* Adiciona espaço interno */
+            width: 100%; /* Garante que o container use 100% da largura */
+            box-sizing: border-box; /* Inclui padding no cálculo de largura */
+        }
+        table {
+            width: 100%; /* Garante que a tabela ocupe toda a largura do container */
+        }
+        .page-footer {
+            background-color: #29b6f6;
+            padding: 8px;
+            color: white;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<nav>
+    <div class="nav-wrapper">
+        <a href="#" class="brand-logo right">Lista de Eventos</a>
+        <ul id="nav-mobile" class="left hide-on-med-and-down">
+            <li><a href="/cadastrarEvento"><i class="material-icons left"></i>Cadastrar evento</a></li>
+            <li><a href="#">Principal</a></li>
+            <li><a href="#">Login</a></li>
+            <li><a href="#">JavaScript</a></li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container ">
+    <table class="striped materialize-text grey lighten-2">
+        <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Local</th>
+            <th>Data</th>
+            <th>Horário</th>
+            <th>Deletar</th>
+            <th>Editar</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="evento : ${evento}">
+            <td th:text="${evento.nome}"></td>
+            <td th:text="${evento.local}"></td>
+            <td th:text="${evento.data}"></td>
+            <td th:text="${evento.horario}"></td>
+            <td>
+                <a th:href="@{/deletarEvento(codigo=${evento.codigo})}" class="btn red">Deletar</a>
+            </td>
+            <td>
+                <a th:href="@{/editarEvento/{codigo}(codigo=${evento.codigo})}" class="btn red">Editar</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<footer class="page-footer">
+    <div class="container">
+        <h5>Sobre Nós</h5>
+        <p>Organizamos eventos incríveis para você! Entre em contato para mais informações.</p>
+        <p>2024 Lista de Eventos</p>
+    </div>
+</footer>
+</body>
+</html>
